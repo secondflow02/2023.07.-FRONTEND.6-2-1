@@ -6,3 +6,31 @@
     - 사용 API: /movie/upcoming dates maximum,minimunm : 3주 다음날, 내일날짜*/
 /*4. top-rated pag
     - 사용 API: /movie/top_rated */
+
+import axios from 'axios';
+
+//const Api_token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmQyMGYyZTNmMmI5NjQwZjgyYWJlMjExMTA4ZWIzMiIsInN1YiI6IjY1ODE2MzlkM2E0OGM1Njc0ZmFmNjYyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Oxr96qz3N6ZwnKbeKEUfJhrFpopLGnGKpwz0jfagpMA';
+
+const Base_Url = 'https://api.themoviedb.org/3';
+
+const baseApi = axios.create({
+    BaseUrl: Base_Url,
+    headers: {
+        Accept: 'application/json',
+        ApiToken: `Bearer ${Api_token}`,
+    },
+    params: {
+        language: 'ko-KR',
+        region: 'KR',
+    },
+});
+
+export const MovieListApi = async () => {
+    try {
+        const home = await baseApi.get(`movie/popular`);
+        return home.data;
+    } catch (error) {
+        console.error('인기 영화를 가져오는 중 오류 발생:', error);
+        return null;
+    }
+};

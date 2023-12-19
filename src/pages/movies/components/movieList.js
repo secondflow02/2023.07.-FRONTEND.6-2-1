@@ -5,4 +5,10 @@
     - 포스터 없는 경우, 대체 이미지 사용
 */
 
-const 
+
+// movies에 들어갈 공통 UI 구현 => 해당 UI에 map으로 data 뿌리기?
+
+const MovieList = () => {
+
+}
+export default MovieList
