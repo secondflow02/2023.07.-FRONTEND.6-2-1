@@ -1,18 +1,18 @@
-import axios from "axios"
+import axios from 'axios';
 
-export const baseUrl = process.env.BASE_URL
-export const token = process.env.TMDB_TOKEN
+export const baseUrl = 'https://api.themoviedb.org/3';
+export const token = process.env.REACT_APP_TMDB_TOKEN;
 
 const movieInstanceAxios = axios.create({
-  baseUrl: baseUrl,
-  headers: {
-    accept: 'application/json',
-    Authorization: `Bearer ${token}`
-  },
-  params:{
-    language: 'ko-KR',
-    region: 'KR'
-  }
-})
+    baseURL: baseUrl,
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+    },
+    params: {
+        language: 'ko-KR',
+        region: 'KR',
+    },
+});
 
-export default movieInstanceAxios
+export default movieInstanceAxios;
