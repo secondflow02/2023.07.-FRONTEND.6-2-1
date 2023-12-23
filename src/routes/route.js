@@ -1,14 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { MovieDetail } from '../apis/MovieDetailApi';
-import {
-    MovieList,
-    NowPlaying,
-    TopRated,
-    UpComing,
-} from '../apis/MovieListApi';
-import { MovieSearch } from '../apis/MovieSearchApi';
 import RootLayout from '../layout/Layout';
+import MovieDetail from '../pages/movie/movieDetail';
+import MovieList from '../pages/movies/movieList';
+import MovieSearchPage from '../pages/search/movieSearch';
 // import HomePage from '../pages/movies/home';
 
 const route = createBrowserRouter([
@@ -16,33 +11,29 @@ const route = createBrowserRouter([
         path: '/',
         element: <RootLayout />,
         children: [
-            // {
-            //     path: '',
-            //     element: <HomePage />,
-            // },
             {
-                path: '/',
-                element: <UpComing />,
-            },
-            {
-                path: '/2',
+                path: '',
                 element: <MovieList />,
             },
-            {
-                path: '/3',
-                element: <TopRated />,
-            },
-            {
-                path: '/4',
-                element: <NowPlaying />,
-            },
+            // {
+            //     path: '/',
+            //     element: <UpComing />,
+            // },
+            // {
+            //     path: '/3',
+            //     element: <TopRated />,
+            // },
+            // {
+            //     path: '/4',
+            //     element: <NowPlaying />,
+            // },
             {
                 path: '/:movieId',
                 element: <MovieDetail />,
             },
             {
                 path: '/31',
-                element: <MovieSearch />,
+                element: <MovieSearchPage />,
             },
         ],
     },
